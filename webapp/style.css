@@ -36,3 +36,20 @@ body {
     color: #3B82F6; /* Тот самый синий */
     font-weight: bold;
 }
+/* Новые стили для кнопки (вместо желтых) */
+.add-btn {
+    background: #3B82F6;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.add-btn:active {
+    background: #2563EB; /* чуть темнее при нажатии */
+}
