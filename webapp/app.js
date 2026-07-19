@@ -54,9 +54,32 @@ window.showTab = function(tabId) {
     document.getElementById(tabId).style.display = 'block';
 }
 
-// Функция-заглушка для добавления товара (позже свяжем с базой)
+// Функция добавления товара (связь с ботом)
 window.addProduct = function() {
-    const title = document.getElementById('title').value;
-    const price = document.getElementById('price').value;
-    alert("Товар '" + title + "' по цене " + price + " добавлен!");
+    // 1. Собираем текст, который продавец ввел в поля
+    const title = document.getElementById('new-title').value;
+    const price = document.getElementById('new-price').value;
+    const image = document.getElementById('new-image').value;
+
+    // 2. Проверяем, не забыл ли он что-то заполнить
+    if (!title || !price || !image) {
+        tg.showAlert("⚠️ Пожалуйста, заполни все три поля!");
+        return;
+    }
+
+    // 3. Упаковываем данные в удобный формат
+    const productData = {
+        type: "new_product",
+        title: title,
+        price: price,
+        image: image
+    };
+
+    // 4. Отправляем эти данные нашему Python-боту
+    tg.sendData(JSON.stringify(productData));
+    
+    // 5. Очищаем поля ввода для следующего товара
+    document.getElementById('new-title').value = '';
+    document.getElementById('new-price').value = '';
+    document.getElementById('new-image').value = '';
 }
