@@ -46,7 +46,17 @@ window.addToCart = function(productId, productName) {
 
 // Запускаем отрисовку при загрузке
 renderCatalog();
-function showTab(tabId) {
+// Функция переключения вкладок
+window.showTab = function(tabId) {
+    // Скрываем все вкладки
     document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+    // Показываем нужную
     document.getElementById(tabId).style.display = 'block';
+}
+
+// Функция-заглушка для добавления товара (позже свяжем с базой)
+window.addProduct = function() {
+    const title = document.getElementById('title').value;
+    const price = document.getElementById('price').value;
+    alert("Товар '" + title + "' по цене " + price + " добавлен!");
 }
