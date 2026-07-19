@@ -2,35 +2,51 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>ChinaMart UA</title>
-    
-    <!-- Подключаем стили -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChinaMart Pro</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Подключаем библиотеку Telegram Web App -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
+    <!-- Верхняя панель навигации -->
+    <div class="tabs">
+        <button onclick="showTab('catalog-tab')" class="tab-btn">Каталог</button>
+        <button onclick="showTab('cart-tab')" class="tab-btn">Корзина</button>
+        <button onclick="showTab('profile-tab')" class="tab-btn">Профиль</button>
+        <button onclick="showTab('admin-tab')" class="tab-btn">CRM</button>
+    </div>
 
-    <header>
-        <h1>🛒 ChinaMart UA</h1>
-        <p class="subtitle">Твой прямой доступ к товарам из Китая</p>
-    </header>
-    
-    <!-- Контейнер для списка товаров -->
-    <div id="catalog" class="catalog"></div>
+    <!-- Вкладка 1: КАТАЛОГ -->
+    <div id="catalog-tab" class="tab-content">
+        <div id="catalog"></div> <!-- Сюда JS загрузит карточки товаров -->
+    </div>
 
-    <!-- Подключаем наш скрипт -->
+    <!-- Вкладка 2: КОРЗИНА -->
+    <div id="cart-tab" class="tab-content" style="display: none;">
+        <h2>Твоя корзина 🛒</h2>
+        <p style="color: #9CA3AF;">Здесь пока пусто.</p>
+    </div>
+
+    <!-- Вкладка 3: ПРОФИЛЬ -->
+    <div id="profile-tab" class="tab-content" style="display: none;">
+        <h2>Мой профиль 👤</h2>
+        <div class="profile-card">
+            <p>ID: <span id="user-id">Загрузка...</span></p>
+            <p>Статус: Покупатель</p>
+        </div>
+    </div>
+
+    <!-- Вкладка 4: CRM (ДОБАВЛЕНИЕ ТОВАРА) -->
+    <div id="admin-tab" class="tab-content" style="display: none;">
+        <h2>Добавить товар 📦</h2>
+        <div class="form-group">
+            <input type="text" id="new-title" placeholder="Название товара">
+            <input type="number" id="new-price" placeholder="Цена (¥)">
+            <input type="text" id="new-image" placeholder="Ссылка на картинку">
+            <button class="add-btn" onclick="addProduct()">Добавить в базу</button>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
-</html><div class="tabs">
-    <button onclick="showTab('catalog')">Каталог</button>
-    <button onclick="showTab('seller-cabinet')">Кабинет Продавца</button>
-</div>
-<div id="catalog" class="tab-content">... твой контент ...</div>
-<div id="seller-cabinet" class="tab-content" style="display:none;">
-    <h3>Добавить товар</h3>
-    <input id="title" placeholder="Название">
-    <button onclick="addProduct()">Сохранить</button>
-</div>
+</html>

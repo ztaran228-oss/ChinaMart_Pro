@@ -53,3 +53,64 @@ body {
 .add-btn:active {
     background: #2563EB; /* чуть темнее при нажатии */
 }
+/* Дизайн вкладок навигации */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background: #111;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #222;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.tab-btn:active, .tab-btn:focus {
+    color: #3B82F6;
+    background: #1e293b;
+}
+
+/* Дизайн полей ввода (Форма добавления товара) */
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group input {
+    background: #161616;
+    border: 1px solid #222;
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #3B82F6;
+}
+
+.profile-card {
+    background: #161616;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #222;
+}
